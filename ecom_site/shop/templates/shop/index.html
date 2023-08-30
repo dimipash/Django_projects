@@ -10,11 +10,32 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 {#    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>#}
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{% static 'shop/style.css' %}">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
+
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="#">Navbar</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                  <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-item nav-link" href="#">Features</a>
+                  <button id="cart" data-html="true" type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="PopOver">Cart(0)</button>
+                  <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                </div>
+              </div>
+            </nav>
+        </div>
+    </div>
 
         <div class="row">
             <div class="col-md-12">
@@ -47,7 +68,7 @@
                         </div>
 
                         <a href="/{{ product.id }}" class="btn btn-warning">View</a>
-                        <a class="btn btn-warning">Add to cart</a>
+                        <button id="{{ product.id }}" class="btn atc btn-warning">Add to cart</button>
                     </div>
                 </div>
             </div>
@@ -86,8 +107,29 @@
     }
     else {
         cart = JSON.parse(localStorage.getItem('cart'));
-        updateCart(cart);
     }
+
+    $(document).on('click', '.atc', function () {
+        console.log("the add to cart button is clicked");
+        var item_id = this.id.toString();
+        console.log(item_id);
+
+        if (cart[item_id] !== undefined){
+            cart[item_id] = cart[item_id] + 1;
+        }
+        else {
+            cart[item_id] = 1;
+        }
+        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        document.getElementById('cart').innerHTML = 'Cart (' + Object.keys(cart).length + ')';
+
+
+    });
+    $(function () {
+  $('[data-toggle="popover"]').popover();
+  document.getElementById('cart').setAttribute('data-content', '<h5>this is your cart</h5>');
+})
 </script>
 </html>
 
