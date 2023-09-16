@@ -1,0 +1,6 @@
+
+‚javascript:S2392f"ZConsider moving declaration of 'cart' as it is referenced outside current binding context.(·¸‹Éüÿÿÿÿ8øã´ğ©1
+†javascript:S2703r"^Add the "let", "const" or "var" keyword to this declaration of "quantity" to make it explicit.(ÍÍ±Ãøÿÿÿÿ8øã´ğ©1
+~javascript:S2703y"[Add the "let", "const" or "var" keyword to this declaration of "price" to make it explicit.(ÌÕ«Ÿ8øã´ğ©1
+^javascript:S1481‰":Remove the declaration of the unused 'cartIndex' variable.(‰ç”8øã´ğ©1
+ƒjavascript:S2703Œ"ZAdd the "let", "const" or "var" keyword to this declaration of "item" to make it explicit.(–ëÂüÿÿÿÿ8­Û¹ğ©1
