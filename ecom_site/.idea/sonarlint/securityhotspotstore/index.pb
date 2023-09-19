@@ -13,3 +13,5 @@ N
 shop/models.py,5\d\5d0a07ed871966ffa6a1a3256fecbfa27e52b9a2
 =
 shop/admin.py,4\8\48409c49db70ca299c7cb27758b7cda3fe9b26f4
+@
+requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
