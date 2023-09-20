@@ -11,3 +11,5 @@ Q
 !django_rest_framework/settings.py,2\d\2d2a0db8a4ce9141b9fcd9d3dc170f36ed582245
 @
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a

@@ -15,3 +15,7 @@ N
 shop/admin.py,4\8\48409c49db70ca299c7cb27758b7cda3fe9b26f4
 @
 requirements.txt,1\9\19359a61ae2446b51b549167b014da2fcf265768
+4
+.env,3\c\3c84dcdc6bbe3d7817c49dcdc327b926fea1808a
+E
+ecom_site/settings.py,b\9\b94008a6856c50dd3b3b7fd252bd7b1665755f21
