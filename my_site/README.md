@@ -1,5 +1,3 @@
-Sure, here's a brief README.md file for this Django project:
-
 # FoodApp
 
 FoodApp is a simple web application built with Django that allows users to manage a list of food items. Users can add, delete, and view details of food items.
