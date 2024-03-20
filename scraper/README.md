@@ -1,5 +1,3 @@
-Sure, here's a brief README.md for the Link Collector Django project:
-
 # Link Collector
 
 This is a Django web application that allows users to scrape and collect links from websites. Users can enter a site address, and the application will scrape all the links from that website and store them in a database.
