@@ -25,7 +25,4 @@ This is a Django web application that allows users to scrape and collect links f
 4. You can delete unwanted links by clicking the "Delete" button.
 
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
