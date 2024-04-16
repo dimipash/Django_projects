@@ -10,3 +10,5 @@ This is a comprehensive Calorie Tracker application built with Django. It allows
 - **Easy Management**: Each food item in the consumption list can be easily managed with a "Remove" button.
 
 This application aims to help users make informed decisions about their diet and lead a healthier lifestyle.
+
+![Home Page Screenshot](Screenshot.jpg)
