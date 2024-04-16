@@ -9,6 +9,10 @@ MovieLister is a simple Django web application that allows users to search and b
 - Navigate between pages using Next, Previous, First, and Last links
 - Case-insensitive movie title search
 
+![Home Page Screenshot](Screenshot.jpg)
+
+![Home Page Screenshot](Screenshot_2.jpg)
+
 ## Installation
 
 1. Clone the repository
