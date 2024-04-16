@@ -9,3 +9,7 @@ This is a dynamic and interactive movie list application built with Django and D
 - **Clean and User-Friendly Interface**: The project is designed with a clean and user-friendly interface ensuring seamless navigation and interaction.
 
 This application aims to provide users with an easy and efficient way to explore and retrieve information about their favorite movies.
+
+![Home Page Screenshot](Screenshot.jpg)
+
+![Home Page Screenshot](Screenshot_2.jpg)
