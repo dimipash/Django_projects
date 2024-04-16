@@ -5,7 +5,11 @@ This is a Django web application that allows users to share and interact with ph
 ## Features
 
 - User authentication (registration, login, logout)
+
+  ![Home Page Screenshot](login_user.jpg)
 - Create, view, update, and delete photos
+
+  ![Home Page Screenshot](post.jpg)
 - Like and comment on photos
 - Follow other users
 - User profiles with uploaded photos
@@ -25,8 +29,3 @@ This is a Django web application that allows users to share and interact with ph
 4. Like and comment on photos.
 5. Follow other users to see their photos on your feed.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-Note: Make sure to replace `your-username` with your actual GitHub username in the clone URL.
