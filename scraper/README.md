@@ -9,6 +9,8 @@ This is a Django web application that allows users to scrape and collect links f
 - View and manage collected links
 - Delete unwanted links
 
+  ![Home Page Screenshot](Screenshot.jpg)
+
 ## Prerequisites
 
 - Python 3.x
