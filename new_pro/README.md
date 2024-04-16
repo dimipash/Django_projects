@@ -31,8 +31,3 @@ MovieLister is a simple Django web application that allows users to search and b
 4. Use the pagination links (Next, Previous, First, Last) to navigate between pages
 5. Click on a movie title to view its details (if implemented)
 
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request.
-
-Note: This README assumes that you have a basic understanding of Django and have set up the necessary database and movie data for the application. If you need further assistance, please refer to the Django documentation or open an issue in the repository.
