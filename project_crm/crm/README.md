@@ -9,3 +9,4 @@ This is a Django web application that utilizes the Bootstrap framework for styli
 - Area chart and bar chart examples
 - Data table example with sortable columns
 
+![Home Page Screenshot](../Screenshot.jpg)
