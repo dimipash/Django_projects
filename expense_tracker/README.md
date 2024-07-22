@@ -25,3 +25,9 @@ The application includes visual representations of expense data, such as:
 - A line chart displaying the sum of daily expenses over time
 
 The Expense Tracker application aims to help users maintain a comprehensive record of their expenses, analyze spending patterns, and make informed financial decisions based on the provided insights.
+
+![Home Page Screenshot](Screenshot.jpg)
+
+![Home Page Screenshot](Screenshot_2.jpg)
+
+![Home Page Screenshot](Screenshot_3.jpg)

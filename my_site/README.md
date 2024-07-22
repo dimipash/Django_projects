@@ -5,9 +5,15 @@ FoodApp is a simple web application built with Django that allows users to manag
 ## Features
 
 - Add new food items with a name, description, price, and image URL
+
+  ![Add Item Screenshot](add_item.jpg)
 - View a list of all food items with their details
+
+  ![Items Screenshot](products.jpg)
 - Delete existing food items
 - User authentication (login required to access certain features)
+
+  ![Login Screenshot](login.jpg)
 
 ## Installation
 

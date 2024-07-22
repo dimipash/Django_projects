@@ -9,6 +9,10 @@ This is a Django web application that allows users to create and manage their CV
 - Generate PDF versions of CVs
 - View and download CV PDFs
 
+  ![Home Page Screenshot](accept.jpg)
+
+  ![Home Page Screenshot](list.jpg)
+
 ## Prerequisites
 
 - Python 3.x
