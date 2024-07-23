@@ -1,0 +1,27 @@
+{% extends 'my_app/base.html'%} {% block body %}
+<form method="POST" class="shadow p-3">
+	{% csrf_token %}
+	<div class="form-group m-3">
+		<input
+			type="text"
+			class="form-control"
+			name="name"
+			id="name"
+			placeholder="Enter Task"
+		/>
+	</div>
+	<div class="form-group m-3">
+		<input
+			type="text"
+			class="form-control"
+			name="priority"
+			id="priority"
+			placeholder="Enter Task Priority"
+		/>
+	</div>
+	<input type="submit" class="btn btn-success m-3" />
+</form>
+
+{% for task in task_list %} {{ task.name }} --> {{ task.priority }}
+<br />
+{% endfor %} {% endblock %}
