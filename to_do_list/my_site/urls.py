@@ -6,4 +6,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),    
     path('', views.index, name='index'),
     path('delete/<int:task_id>/', views.delete, name='delete'),
+    path('update/<int:id>/', views.update, name='update'),
 ]
