@@ -1,68 +1,74 @@
-{% extends 'my_app/base.html'%} {% block body %}
+{% extends 'my_app/base.html' %}
+{% load static %}
 
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="banner">
-				<div class="banner-text">
-					<h1>To Do</h1>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+{% block body %}
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #e0f7fa, #b3e5fc);">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <h1 class="display-4 text-center mb-5 text-primary" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+                <i class="fas fa-tasks me-3"><b></i>Task Master</b>
+            </h1>
+            
+            <div class="row g-4">
+                <!-- Add New Task Form -->
+                <div class="col-md-6 mb-4">
+                    <div class="card shadow-sm border-0 rounded-lg" style="background: rgba(255,255,255,0.9);">
+                        <div class="card-header bg-primary text-white rounded-top">
+                            <h4 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Add New Task</h4>
+                        </div>
+                        <div class="card-body">
+                            <form method="POST">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-lg" name="name" id="name" placeholder="Enter Task" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="date" class="form-control form-control-lg" name="date" id="date" required>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control form-control-lg" name="priority" id="priority" placeholder="Enter Task Priority" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill">
+                                    <i class="fas fa-paper-plane me-2"><b></i>Add Task</b>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-<div class="row">
-	<div class="col-md-6">
-		<h4 class="m-3">Add Task</h4>
-		<form method="POST" class="shadow p-3">
-			{% csrf_token %}
-			<div class="form-group m-3">
-				<input
-					type="text"
-					class="form-control"
-					name="name"
-					id="name"
-					placeholder="Enter Task"
-				/>
-			</div>
-			<div class="form-group m-3">
-				<input
-					type="date"
-					class="form-control"
-					name="date"
-					id="date"					
-				/>
-			</div>
-			<div class="form-group m-3">
-				<input
-					type="text"
-					class="form-control"
-					name="priority"
-					id="priority"
-					placeholder="Enter Task Priority"
-				/>
-			</div>
-			<input type="submit" class="btn btn-success m-3" />
-		</form>
-	</div>
-
-	<div class="col-md-6">
-		<h4>Tasks to be completed</h4>
-		{% for task in task_list %}
-		<div class="card shadow">
-			<div class="card-body">
-				<h5 class="card-title">{{ task.name }}</h5>
-				<p><b>{{ task.priority }}</b></p>
-				<p><b>{{ task.date }}</b></p>
-
-				<a class="btn btn-danger" href="{% url 'delete' task.id %}">Done</a>
-				<a class="btn btn-success" href="{% url 'update' task.id %}">Update</a>
-
-			</div>
-		</div>
-        <br>
-		{% endfor %}
-	</div>
+                <!-- Task List -->
+                <div class="col-md-6">
+                    <h4 class="mb-4 text-primary"><i class="fas fa-clipboard-list me-2"></i>Tasks to be completed</h4>
+                    {% for task in task_list %}
+                    <div class="card shadow-sm border-0 mb-3 rounded-lg" style="background: rgba(255,255,255,0.9);">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary"><b>{{ task.name }}</b></h5>
+                            <p class="card-text">
+                                <span class="badge bg-info text-dark me-2 rounded-pill">
+                                    <i class="fas fa-star me-1"></i>Priority: <b>{{ task.priority }}</b>
+                                </span>
+                                <span class="badge bg-secondary rounded-pill">
+                                    <i class="far fa-calendar-alt me-1"></i>Due: {{ task.date }}
+                                </span>
+                            </p>
+                            <div class="d-flex justify-content-end">
+                                <a href="{% url 'update' task.id %}" class="btn btn-outline-primary btn-sm me-2 rounded-pill">
+                                    <i class="fas fa-edit me-1"><b></i>Update</b>
+                                </a>
+                                <a href="{% url 'delete' task.id %}" class="btn btn-outline-danger btn-sm rounded-pill">
+                                    <i class="fas fa-check me-1"><b></i>Done</b>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <div class="alert alert-info" role="alert">
+                        <i class="fas fa-info-circle me-2"></i>No tasks yet. Add a task to get started!
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -1,6 +1,36 @@
 from django.shortcuts import render, redirect
 from .models import Task
 from .forms import TodoForm
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView, DeleteView
+from django.urls import reverse_lazy
+
+
+class TaskListView(ListView):
+    model = Task
+    template_name = 'my_app/index.html'
+    context_object_name = 'task_list'
+
+
+class TaskDetailView(DetailView):
+    model = Task
+    template_name ='my_app/detail.html'
+    context_object_name = 'task'
+
+class TaskUpdateView(UpdateView):
+    model = Task
+    template_name = 'my_app/update.html'
+    context_object_name = 'task'
+    fields = ('name', 'priority', 'date')
+
+    def get_success_url(self):
+        return reverse_lazy('cbv-detail', kwargs={'pk':self.object.id})
+    
+class TaskDeleteView(DeleteView):
+    model = Task
+    template_name = 'my_app/delete.html'
+    success_url = reverse_lazy('cbv-index')
 
 
 def index(request):

@@ -1,11 +1,28 @@
-{% extends 'my_app/base.html'%} 
+{% extends 'my_app/base.html' %}
+{% load static %}
+
 {% block body %}
-    <form method="POST">
-         {% csrf_token %}
-         <h3>Are you sure this task is done?</h3>
-         <button type="submit">Confirm</button>
-    </form>
-
-
-
+<div class="container-fluid py-5" style="background: linear-gradient(135deg, #e0f7fa, #b3e5fc);">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 rounded-lg" style="background: rgba(255,255,255,0.9);">
+                <div class="card-header bg-danger text-white rounded-top">
+                    <h4 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Confirm Task Completion</h4>
+                </div>
+                <div class="card-body text-center">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <h3 class="mb-4 text-primary">Are you sure this task is done?</h3>
+                        <button type="submit" class="btn btn-danger btn-lg w-50 rounded-pill">
+                            <i class="fas fa-check me-2"></i>Confirm
+                        </button>
+                        <a href="{% url 'index' %}" class="btn btn-secondary btn-lg w-50 rounded-pill mt-2">
+                            <i class="fas fa-times me-2"></i>Cancel
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
