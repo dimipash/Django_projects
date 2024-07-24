@@ -28,6 +28,14 @@
 			</div>
 			<div class="form-group m-3">
 				<input
+					type="date"
+					class="form-control"
+					name="date"
+					id="date"					
+				/>
+			</div>
+			<div class="form-group m-3">
+				<input
 					type="text"
 					class="form-control"
 					name="priority"
@@ -46,6 +54,7 @@
 			<div class="card-body">
 				<h5 class="card-title">{{ task.name }}</h5>
 				<p><b>{{ task.priority }}</b></p>
+				<p><b>{{ task.date }}</b></p>
 				<a class="btn btn-danger" href="{% url 'delete' task.id %}">Done</a>
 			</div>
 		</div>
