@@ -13,3 +13,12 @@ def index(request):
         return redirect("/")
 
     return render(request, "my_app/index.html", {"task_list": task_list})
+
+def delete(request, task_id):
+    task = Task.objects.get(id=task_id)     
+    if request.method == "POST":
+        task.delete()
+        return redirect("/")
+    
+    return render(request, "my_app/delete.html", {"task": task})
+
