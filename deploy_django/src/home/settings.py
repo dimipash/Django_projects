@@ -1,15 +1,23 @@
-from pathlib import Path
 from decouple import config
+from django.core.management.utils import get_random_secret_key
+from pathlib import Path
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+REPO_DIR = BASE_DIR.parent.parent
+TEMPLATES_DIR = BASE_DIR / "templates"
+TEMPLATES_DIR.mkdir(parents=True, exist_ok=True)
 
-
-SECRET_KEY = config("DJANGO_SECRET_KEY")
+SECRET_KEY = config("DJANGO_SECRET_KEY", default=get_random_secret_key(), cast=str)
 
 DEBUG = config("DJANGO_DEBUG", default=False, cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [".railway.app"]
+
+CSRF_TRUSTED_ORIGINS = ["https://*.railway.app"]
+
+if DEBUG:
+    ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -38,7 +46,7 @@ ROOT_URLCONF = "home.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [TEMPLATES_DIR],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
