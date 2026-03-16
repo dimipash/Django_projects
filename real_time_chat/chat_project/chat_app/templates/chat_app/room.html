@@ -1,1 +1,10 @@
 <h1>This is a chatroom {{ chat_room.name }}!</h1>
+<form method="post">
+    {% csrf_token %}
+    <input
+        type="text"
+        name="message"
+        placeholder="Type your message here...d"
+    />
+    <button type="submit">Send</button>
+</form>
