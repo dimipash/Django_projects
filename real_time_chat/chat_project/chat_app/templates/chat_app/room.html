@@ -33,8 +33,14 @@
             e.preventDefault();
             const messageInput = document.getElementById("message-input");
             const message = messageInput.value;
-            console.log(message);
-            chatSocket.send(JSON.stringify({ message: message }));
+            chatSocket.send(
+                JSON.stringify({
+                    message: message,
+                    username: username,
+                    room: chatRoomName,
+                }),
+            );
+
             messageInput.value = "";
         });
 </script>
