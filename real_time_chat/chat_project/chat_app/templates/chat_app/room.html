@@ -2,7 +2,11 @@
 {{ request.user.username|json_script:"json-username" }}
 {{chat_room.slug|json_script:"chatroomname" }}
 
-<div id="chat-messages"></div>
+<div id="chat-messages">
+    {% for message in messages %}
+    <p>{{ message.user.username }}: {{ message.message_content }}</p>
+    {% endfor %}
+</div>
 
 <form method="post">
     {% csrf_token %}
