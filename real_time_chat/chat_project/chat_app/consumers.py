@@ -60,6 +60,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
     @sync_to_async
     def save_message(self, username, room, message):
-        user = User.objects.get(username=username)
+        user = self.scope["user"]
+
+        if user.is_anonymous:
+            return
+
         room = ChatRoom.objects.get(slug=room)
+
         ChatMessage.objects.create(user=user, room=room, message_content=message)

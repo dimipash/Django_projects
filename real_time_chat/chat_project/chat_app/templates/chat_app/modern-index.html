@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatrooms</title>
+
+    <!-- TailwindCSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Optional: Custom Dribbble-style accent colors -->
+    <style>
+      body {
+        background-color: #fafbfc;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="min-h-screen flex flex-col items-center py-12 px-6">
+    <!-- Header -->
+    <h1
+      class="text-3xl font-extrabold text-gray-900 mb-8 tracking-tight text-center"
+    >
+      💬 List of Rooms
+    </h1>
+
+    <!-- Room Grid -->
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl w-full">
+      {% for chatroom in chatrooms %}
+      <a
+        href="{% url 'chatroom' chatroom.slug %}"
+        class="group p-6 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-200"
+      >
+        <div class="flex flex-col space-y-3">
+          <!-- Room Icon -->
+          <div
+            class="h-12 w-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white text-xl font-semibold shadow-md"
+          >
+            {{ chatroom.name|slice:":1" }}
+          </div>
+
+          <!-- Room Name -->
+          <h2
+            class="text-lg font-semibold text-gray-800 group-hover:text-indigo-600 transition-colors"
+          >
+            {{ chatroom.name }}
+          </h2>
+
+          <!-- Description (optional) -->
+          {% if chatroom.description %}
+          <p class="text-gray-500 text-sm line-clamp-2">
+            {{ chatroom.description }}
+          </p>
+          {% endif %}
+        </div>
+      </a>
+      {% empty %}
+      <p class="text-gray-500 text-center col-span-full">No chatrooms yet 😔</p>
+      {% endfor %}
+    </div>
+  </body>
+</html>
